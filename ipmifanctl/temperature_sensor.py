@@ -11,7 +11,7 @@ class TemperatureSensor:
 
     def get_reading(self):
         cmd = self._get_temp_prefix + [self.id]
-        proc = subprocess.run(cmd, capture_output=True)
+        proc = subprocess.run(cmd, stdout=subprocess.PIPE)
         name, reading_str = proc.stdout.split('|')
         reading = int(reading_str.strip())
         return reading
