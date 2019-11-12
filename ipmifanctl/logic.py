@@ -4,14 +4,15 @@ from functools import reduce
 class Logic:
     _default_window = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.75, 0.5, 0.25]
 
-    def __init__(self, lo_temp, hi_temp, lo_speed, hi_speed, curve_power=2.0):
+    def __init__(self, lo_temp, hi_temp, lo_speed, hi_speed, curve_power=2.0,
+                 hysteresis=2):
         self.lo_temp = lo_temp
         self.hi_temp = hi_temp
         self.lo_speed = lo_speed
         self.hi_speed = hi_speed
         self.curve_power = curve_power
         self.window = self._default_window
-        self.hysteresis = 2
+        self.hysteresis = hysteresis
         # Initialize to 20 degrees celsius
         self._prior_readings = [20] * len(self._default_window)
         self._peak_reading = self._prior_readings[0]

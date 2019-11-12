@@ -13,6 +13,7 @@ def main():
     parser.add_argument('--hi-speed', type=int, default=50)
     parser.add_argument('--power', type=float, default=2.0)
     parser.add_argument('--update-period', type=float, default=None)
+    parser.add_argument('--temp-hysteresis', type=int, default=2)
     args = parser.parse_args()
 
     sensor = TemperatureSensor(args.temp_sensor_id)
