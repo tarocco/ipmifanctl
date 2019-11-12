@@ -37,7 +37,10 @@ class Logic:
         interpolant = (self._peak_reading - self.lo_temp) / temp_range
         t = pow(interpolant, self.curve_power) # Power-curved interpolant
         value = self.lo_speed + speed_range * t
-        self._value = self.lerp(value, self.value, self.feathering)
+        if self._value is None:
+            self._value = value
+        else:
+            self._value = self.lerp(value, self.value, self.feathering)
 
     @property
     def value(self):
