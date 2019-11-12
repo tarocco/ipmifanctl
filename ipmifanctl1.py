@@ -21,7 +21,7 @@ def main():
     logic = Logic(
         args.lo_temp, args.hi_temp,
         args.lo_speed, args.hi_speed,
-        args.power)
+        args.power, args.temp_hysteresis)
 
     fan_controller = RawFanControl()
     main_controller = Controller(sensor, logic, [fan_controller])
