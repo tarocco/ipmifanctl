@@ -40,7 +40,7 @@ class Logic:
         if self._value is None:
             self._value = value
         else:
-            self._value = self.lerp(value, self.value, self.feathering)
+            self._value = self.lerp(self._value, value, self.feathering)
 
     @property
     def value(self):
