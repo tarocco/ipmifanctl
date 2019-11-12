@@ -28,8 +28,10 @@ class Logic:
         if difference > self.hysteresis:
             self._peak_reading = peak_reading
         temp_range = (self.hi_temp - self.lo_temp)
+        speed_range = (self.hi_speed - self.lo_speed)
         interpolant = (self._peak_reading - self.lo_temp) / temp_range
-        self._value = pow(interpolant, self.curve_power)
+        t = pow(interpolant, self.curve_power) # Power-curved interpolant
+        self._value = self.lo_speed + speed_range * t
 
     @property
     def value(self):
