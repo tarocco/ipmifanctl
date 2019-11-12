@@ -14,6 +14,7 @@ def main():
     parser.add_argument('--power', type=float, default=2.0)
     parser.add_argument('--update-period', type=float, default=None)
     parser.add_argument('--temp-hysteresis', type=int, default=2)
+    parser.add_argument('--speed-feathering', type=float, default=0.5)
     args = parser.parse_args()
 
     sensor = TemperatureSensor(args.temp_sensor_id)
@@ -21,7 +22,7 @@ def main():
     logic = Logic(
         args.lo_temp, args.hi_temp,
         args.lo_speed, args.hi_speed,
-        args.power, args.temp_hysteresis)
+        args.power, args.temp_hysteresis, args.speed_feathering)
 
     fan_controller = RawFanControl()
     main_controller = Controller(sensor, logic, [fan_controller])
