@@ -4,10 +4,6 @@ from functools import reduce
 class Logic:
     _default_window = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.75, 0.5, 0.25]
 
-    @staticmethod
-    def lerp(a, b, t):
-        return a + (b - a) * t
-
     def __init__(self, lo_temp, hi_temp, lo_speed, hi_speed, curve_power=2.0):
         self.lo_temp = lo_temp
         self.hi_temp = hi_temp
