@@ -28,9 +28,13 @@ def main():
     if args.update_period is None:
         main_controller.update()
     else:
-        while True:
-            main_controller.update()
-            sleep(args.update_period)
+        main_controller.set_manual_fan_control(True)
+        try:
+            while True:
+                main_controller.update()
+                sleep(args.update_period)
+        finally:
+            main_controller.set_manual_fan_control(False)
 
 
 if __name__ == '__main__':

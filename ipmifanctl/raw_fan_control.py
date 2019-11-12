@@ -3,7 +3,12 @@ import subprocess
 
 class RawFanControl:
     backend = 'ipmitool'
+    _set_manual_prefix = ['ipmitool', 'raw', '0x30', '0x30', '0x01']
     _set_value_prefix  = ['ipmitool', 'raw', '0x30', '0x30', '0x02', '0xFF']
+
+    def set_manual(self, enabled):
+        hex_value = '0x00' if enabled else '0x01'
+        subprocess.run(self._set_manual_prefix + [hex_value])
 
     def set_value(self, value):
         """

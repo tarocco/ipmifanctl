@@ -4,6 +4,10 @@ class Controller:
         self.logic = logic
         self.fan_controllers = fan_controllers
 
+    def set_manual_fan_control(self, enabled):
+        for fan_controller in self.fan_controllers:
+            fan_controller.set_manual(enabled)
+
     def update(self):
         reading = self.sensor.get_reading()
         self.logic.update(reading)
