@@ -17,6 +17,7 @@ class Logic:
         self.curve_power = curve_power
         self.window = self._temp_peak_window
         self.hysteresis = hysteresis
+        self.feathering = feathering
         # Initialize to 20 degrees celsius
         self._prior_readings = [20] * len(self._temp_peak_window)
         self._peak_reading = self._prior_readings[0]
