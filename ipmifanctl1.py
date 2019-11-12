@@ -23,3 +23,7 @@ def main():
     main_controller = Controller(sensor, logic, [fan_controller])
 
     main_controller.update()
+
+
+if __name__ == '__main__':
+    main()
