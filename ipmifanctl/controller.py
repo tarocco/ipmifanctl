@@ -13,5 +13,5 @@ class Controller:
         self.logic.update(reading)
         if self.logic.value is not None:
             for fan_controller in self.fan_controllers:
-                fc_value = int(self.logic.value * 255)
+                fc_value = int(self.logic.value)
                 fan_controller.set_value(fc_value)
